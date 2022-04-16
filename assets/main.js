@@ -6,8 +6,15 @@ const messages          = document.querySelector('#messages')
 const logoutButton      = document.querySelector('#logout-button')
 const form              = document.querySelector('#message-form')
 const inputMessage      = document.querySelector('#message')
+const submitButton      = document.querySelector('#submit-button')
 
 function login() {
+    if (!inputUserName.value) {
+        alert('Please fill your name!')
+
+        return;
+    }
+
     loginContainer.classList.remove("d-flex");
     loginContainer.hidden = true;
 
@@ -24,6 +31,24 @@ function logout() {
 
     logoutButton.hidden = true;
 }
+
+inputUserName.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        login();
+    }
+});
+
+inputMessage.addEventListener('keydown', function (e) {
+    if (e.keyCode === 13) {
+        // Press 'Ctrl + Enter' = New line
+        if(e.ctrlKey) {
+            inputMessage.value += '\r\n';
+            // Press 'Enter' = Send message
+        } else {
+            submitButton.click();
+        }
+    }
+});
 
 form.addEventListener('submit',(e) => {
     e.preventDefault();
@@ -50,7 +75,6 @@ socket.on('chatMessage', (data) => {
     messages.appendChild(messageItem)
 
     // Scroll to the last message
-    // window.scrollTo(0, document.body.scrollHeight)
-    messages.scrollHeight
+    messages.scrollTop = messages.scrollHeight;
 })
 

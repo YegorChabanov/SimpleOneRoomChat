@@ -34,21 +34,14 @@
 
                 <!-- Chat Container -->
                 <div id="chat-container" hidden>
-                    <div id="messages">
-                        <div class="d-flex flex-row p-3">
-                            <span class="ml-2 p-3">Mike</span>
-                            <div class="chat ml-2 p-3">Hey! How are you doing?</div>
-                        </div>
-                        <div class="d-flex flex-row p-3">
-                            <span class="ml-2 p-3">Helen</span>
-                            <div class="chat ml-2 p-3">Hello! I'm fine! and you?</div>
-                        </div>
+                    <div id="messages" class="overflow-auto">
+                        <!-- Messages content -->
                     </div>
                     <div class="form-group px-3">
                         <form id="message-form">
                             <textarea id="message" class="form-control mb-3" rows="5" placeholder="Type your message"></textarea>
                             <div class="input-group-append px-2 pb-2">
-                                <button class="btn btn-outline-success" type="submit">Send</button>
+                                <button id="submit-button" class="btn btn-outline-success" type="submit">Send</button>
                             </div>
                         </form>
                     </div>
