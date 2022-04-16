@@ -1,6 +1,6 @@
 const socket        = io()
 const loginContainer    = document.querySelector('#login-container')
-const inputUserName     = document.querySelector('#user_name')
+const inputUserName     = document.querySelector('#username')
 const chatContainer     = document.querySelector('#chat-container')
 const messages          = document.querySelector('#messages')
 const logoutButton      = document.querySelector('#logout-button')
